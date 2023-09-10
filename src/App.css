@@ -16,6 +16,10 @@
   text-align: center;
 }
 
+#winner p {
+  font-size: 24px;
+}
+
 /* cards */
 .card-container {
   position: relative;

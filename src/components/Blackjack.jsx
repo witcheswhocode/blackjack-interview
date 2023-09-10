@@ -91,14 +91,31 @@ const Blackjack = () => {
     return (
         <div id="blackjack-board">
             <h1>Blackjack</h1>
+            <p>Deal to start playing and draw single card to get closer to 21.</p>
             <button onClick={initialDeal}>Deal</button>
             <button onClick={singleCardDraw} disabled={gameOver}>
-                Draw Player Card
+                Draw Single Card
             </button>
             <button onClick={stand} disabled={gameOver}>
                 Stand
             </button>
 
+            {gameOver && (
+                <div id="winner">
+                    {playerScore > 21 ? (
+                        <p>Computer wins!</p>
+                    ) : computerScore > 21 ? (
+                        <p>✨ Player wins! ✨</p>
+                    ) : playerScore > computerScore ? (
+                        <p>✨ Player wins! ✨</p>
+                    ) : computerScore > playerScore ? (
+                        <p>Computer wins!</p>
+                    ) : (
+                        <p>It's a tie!</p>
+                    )}
+                </div>
+            )}
+            
             <div id='deal-panel'>
                 <div>
                     <h2>Player's Hand</h2>
