@@ -74,12 +74,12 @@ const Blackjack = () => {
         let hasAce = false;
 
         for (const card of hand) {
-            if (card.value === 'A') {
+            if (card.value === 'ACE') {
                 hasAce = true;
             }
             value += getValueOfCard(card.value);
         }
-
+        
         // decides best value of Ace to use for each draw
         if (hasAce && value <= 11) { 
             value += 10;
