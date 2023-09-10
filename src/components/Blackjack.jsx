@@ -55,6 +55,10 @@ const Blackjack = () => {
         }
     };
 
+    const stand = () => {
+        setGameOver(true);
+    };
+
     const calculateScores = (playerHand, computerHand) => {
         setPlayerScore(calculateHandValue(playerHand));
         setComputerScore(calculateHandValue(computerHand));
@@ -90,6 +94,9 @@ const Blackjack = () => {
             <button onClick={initialDeal}>Deal</button>
             <button onClick={singleCardDraw} disabled={gameOver}>
                 Draw Player Card
+            </button>
+            <button onClick={stand} disabled={gameOver}>
+                Stand
             </button>
 
             <div id='deal-panel'>
