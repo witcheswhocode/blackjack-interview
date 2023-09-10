@@ -1,8 +1,9 @@
 import './App.css';
+import Blackjack from './components/Blackjack'
 
 function App() {
   return (
-    <p>Hello</p>
+    <Blackjack />
   );
 }
 
