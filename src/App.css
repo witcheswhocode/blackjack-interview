@@ -8,6 +8,7 @@
 
 #blackjack-board {
   background-color: green;
+  border: 10px black solid;
   width: 60%;
   border-radius: 15px;
   margin: 0 auto;
