@@ -1,6 +1,6 @@
 # Blackjack Game
 
-This will be a simplified version of the game Blackjack using React and [Deck of Cards API](https://deckofcardsapi.com/).
+A simplified version of Blackjack using React and [Deck of Cards API](https://deckofcardsapi.com/).
 
 ## Run the project
 
