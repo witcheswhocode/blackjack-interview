@@ -34,6 +34,7 @@ const Blackjack = () => {
                 const cards = data.cards;
                 const playerInitialHand = [cards[0], cards[1]];
                 const computerInitialHand = [cards[2], cards[3]];
+                setGameOver(false);
                 setPlayerHand(playerInitialHand);
                 setComputerHand(computerInitialHand);
                 calculateScores(playerInitialHand, computerInitialHand);
@@ -41,15 +42,17 @@ const Blackjack = () => {
     };
 
     const singleCardDraw = () => {
-        // draw one card for player
-        fetch(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=1`)
-            .then((response) => response.json())
-            .then((data) => {
-                const newCard = data.cards[0];
-                const newPlayerHand = [...playerHand, newCard];
-                setPlayerHand(newPlayerHand);
-                calculateScores(newPlayerHand, computerHand);
-            });
+        if (!gameOver) {
+            // draw one card for player
+            fetch(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=1`)
+                .then((response) => response.json())
+                .then((data) => {
+                    const newCard = data.cards[0];
+                    const newPlayerHand = [...playerHand, newCard];
+                    setPlayerHand(newPlayerHand);
+                    calculateScores(newPlayerHand, computerHand);
+                });
+        }
     };
 
     const calculateScores = (playerHand, computerHand) => {
@@ -85,7 +88,7 @@ const Blackjack = () => {
         <div id="blackjack-board">
             <h1>Blackjack</h1>
             <button onClick={initialDeal}>Deal</button>
-            <button onClick={singleCardDraw}>
+            <button onClick={singleCardDraw} disabled={gameOver}>
                 Draw Player Card
             </button>
 
