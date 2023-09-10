@@ -28,16 +28,21 @@ const Blackjack = () => {
 
     const initialDeal = () => {
         // draw two cards for the player and computer
-        fetch(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=4`)
+        fetch(`https://deckofcardsapi.com/api/deck/${deckId}/shuffle`)
             .then((response) => response.json())
             .then((data) => {
-                const cards = data.cards;
-                const playerInitialHand = [cards[0], cards[1]];
-                const computerInitialHand = [cards[2], cards[3]];
-                setGameOver(false);
-                setPlayerHand(playerInitialHand);
-                setComputerHand(computerInitialHand);
-                calculateScores(playerInitialHand, computerInitialHand);
+                // draw two cards for the player and computer
+                fetch(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=4`)
+                    .then((response) => response.json())
+                    .then((data) => {
+                        const cards = data.cards;
+                        const playerInitialHand = [cards[0], cards[1]];
+                        const computerInitialHand = [cards[2], cards[3]];
+                        setGameOver(false);
+                        setPlayerHand(playerInitialHand);
+                        setComputerHand(computerInitialHand);
+                        calculateScores(playerInitialHand, computerInitialHand);
+                    });
             });
     };
 
@@ -91,7 +96,7 @@ const Blackjack = () => {
     return (
         <div id="blackjack-board">
             <h1>Blackjack</h1>
-            <p>Deal to start playing and draw single card to get closer to 21.</p>
+            <p>Deal to start a game and draw single card to get closer to 21.</p>
             <button onClick={initialDeal}>Deal</button>
             <button onClick={singleCardDraw} disabled={gameOver}>
                 Draw Single Card

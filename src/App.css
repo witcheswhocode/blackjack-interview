@@ -20,6 +20,10 @@
   font-size: 24px;
 }
 
+button {
+  margin: 0 10px;
+}
+
 /* cards */
 .card-container {
   position: relative;
