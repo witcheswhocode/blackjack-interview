@@ -1,0 +1,40 @@
+#deal-panel {
+  display: flex;
+  justify-content: center;
+}
+#deal-panel div{
+  margin: 0 10px; 
+}
+
+#blackjack-board {
+  background-color: green;
+  width: 60%;
+  border-radius: 15px;
+  margin: 0 auto;
+  padding: 20px;
+  color: white;
+  text-align: center;
+}
+
+/* cards */
+.card-container {
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse; 
+  align-items: center;
+  
+  padding: 20px;
+  overflow: hidden; 
+}
+
+.card {
+  width: 60px;
+  height: 80px;
+  margin: 5px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 18px;
+}
+
